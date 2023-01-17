@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2768AA422976C63B00A67ECE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768AA412976C63B00A67ECE /* AppDelegate.swift */; };
+		2768AA442976C63B00A67ECE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768AA432976C63B00A67ECE /* ViewController.swift */; };
+		2768AA462976C63C00A67ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2768AA452976C63C00A67ECE /* Assets.xcassets */; };
+		2768AA492976C63C00A67ECE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2768AA472976C63C00A67ECE /* Main.storyboard */; };
+		2768AA542976C63C00A67ECE /* ImageTinterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768AA532976C63C00A67ECE /* ImageTinterTests.swift */; };
+		2768AA5E2976C63C00A67ECE /* ImageTinterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768AA5D2976C63C00A67ECE /* ImageTinterUITests.swift */; };
+		2768AA602976C63C00A67ECE /* ImageTinterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768AA5F2976C63C00A67ECE /* ImageTinterUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2768AA502976C63C00A67ECE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2768AA362976C63B00A67ECE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2768AA3D2976C63B00A67ECE;
+			remoteInfo = ImageTinter;
+		};
+		2768AA5A2976C63C00A67ECE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2768AA362976C63B00A67ECE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2768AA3D2976C63B00A67ECE;
+			remoteInfo = ImageTinter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2768AA3E2976C63B00A67ECE /* ImageTinter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageTinter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2768AA412976C63B00A67ECE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2768AA432976C63B00A67ECE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2768AA452976C63C00A67ECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2768AA482976C63C00A67ECE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2768AA4A2976C63C00A67ECE /* ImageTinter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageTinter.entitlements; sourceTree = "<group>"; };
+		2768AA4F2976C63C00A67ECE /* ImageTinterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageTinterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2768AA532976C63C00A67ECE /* ImageTinterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTinterTests.swift; sourceTree = "<group>"; };
+		2768AA592976C63C00A67ECE /* ImageTinterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageTinterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2768AA5D2976C63C00A67ECE /* ImageTinterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTinterUITests.swift; sourceTree = "<group>"; };
+		2768AA5F2976C63C00A67ECE /* ImageTinterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTinterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2768AA3B2976C63B00A67ECE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2768AA4C2976C63C00A67ECE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2768AA562976C63C00A67ECE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2768AA352976C63B00A67ECE = {
+			isa = PBXGroup;
+			children = (
+				2768AA402976C63B00A67ECE /* ImageTinter */,
+				2768AA522976C63C00A67ECE /* ImageTinterTests */,
+				2768AA5C2976C63C00A67ECE /* ImageTinterUITests */,
+				2768AA3F2976C63B00A67ECE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2768AA3F2976C63B00A67ECE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2768AA3E2976C63B00A67ECE /* ImageTinter.app */,
+				2768AA4F2976C63C00A67ECE /* ImageTinterTests.xctest */,
+				2768AA592976C63C00A67ECE /* ImageTinterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2768AA402976C63B00A67ECE /* ImageTinter */ = {
+			isa = PBXGroup;
+			children = (
+				2768AA412976C63B00A67ECE /* AppDelegate.swift */,
+				2768AA432976C63B00A67ECE /* ViewController.swift */,
+				2768AA452976C63C00A67ECE /* Assets.xcassets */,
+				2768AA472976C63C00A67ECE /* Main.storyboard */,
+				2768AA4A2976C63C00A67ECE /* ImageTinter.entitlements */,
+			);
+			path = ImageTinter;
+			sourceTree = "<group>";
+		};
+		2768AA522976C63C00A67ECE /* ImageTinterTests */ = {
+			isa = PBXGroup;
+			children = (
+				2768AA532976C63C00A67ECE /* ImageTinterTests.swift */,
+			);
+			path = ImageTinterTests;
+			sourceTree = "<group>";
+		};
+		2768AA5C2976C63C00A67ECE /* ImageTinterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2768AA5D2976C63C00A67ECE /* ImageTinterUITests.swift */,
+				2768AA5F2976C63C00A67ECE /* ImageTinterUITestsLaunchTests.swift */,
+			);
+			path = ImageTinterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2768AA3D2976C63B00A67ECE /* ImageTinter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2768AA632976C63C00A67ECE /* Build configuration list for PBXNativeTarget "ImageTinter" */;
+			buildPhases = (
+				2768AA3A2976C63B00A67ECE /* Sources */,
+				2768AA3B2976C63B00A67ECE /* Frameworks */,
+				2768AA3C2976C63B00A67ECE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageTinter;
+			productName = ImageTinter;
+			productReference = 2768AA3E2976C63B00A67ECE /* ImageTinter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2768AA4E2976C63C00A67ECE /* ImageTinterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2768AA662976C63C00A67ECE /* Build configuration list for PBXNativeTarget "ImageTinterTests" */;
+			buildPhases = (
+				2768AA4B2976C63C00A67ECE /* Sources */,
+				2768AA4C2976C63C00A67ECE /* Frameworks */,
+				2768AA4D2976C63C00A67ECE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2768AA512976C63C00A67ECE /* PBXTargetDependency */,
+			);
+			name = ImageTinterTests;
+			productName = ImageTinterTests;
+			productReference = 2768AA4F2976C63C00A67ECE /* ImageTinterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2768AA582976C63C00A67ECE /* ImageTinterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2768AA692976C63C00A67ECE /* Build configuration list for PBXNativeTarget "ImageTinterUITests" */;
+			buildPhases = (
+				2768AA552976C63C00A67ECE /* Sources */,
+				2768AA562976C63C00A67ECE /* Frameworks */,
+				2768AA572976C63C00A67ECE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2768AA5B2976C63C00A67ECE /* PBXTargetDependency */,
+			);
+			name = ImageTinterUITests;
+			productName = ImageTinterUITests;
+			productReference = 2768AA592976C63C00A67ECE /* ImageTinterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2768AA362976C63B00A67ECE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					2768AA3D2976C63B00A67ECE = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					2768AA4E2976C63C00A67ECE = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 2768AA3D2976C63B00A67ECE;
+					};
+					2768AA582976C63C00A67ECE = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 2768AA3D2976C63B00A67ECE;
+					};
+				};
+			};
+			buildConfigurationList = 2768AA392976C63B00A67ECE /* Build configuration list for PBXProject "ImageTinter" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2768AA352976C63B00A67ECE;
+			productRefGroup = 2768AA3F2976C63B00A67ECE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2768AA3D2976C63B00A67ECE /* ImageTinter */,
+				2768AA4E2976C63C00A67ECE /* ImageTinterTests */,
+				2768AA582976C63C00A67ECE /* ImageTinterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2768AA3C2976C63B00A67ECE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2768AA462976C63C00A67ECE /* Assets.xcassets in Resources */,
+				2768AA492976C63C00A67ECE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2768AA4D2976C63C00A67ECE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2768AA572976C63C00A67ECE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2768AA3A2976C63B00A67ECE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2768AA442976C63B00A67ECE /* ViewController.swift in Sources */,
+				2768AA422976C63B00A67ECE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2768AA4B2976C63C00A67ECE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2768AA542976C63C00A67ECE /* ImageTinterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2768AA552976C63C00A67ECE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2768AA602976C63C00A67ECE /* ImageTinterUITestsLaunchTests.swift in Sources */,
+				2768AA5E2976C63C00A67ECE /* ImageTinterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2768AA512976C63C00A67ECE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2768AA3D2976C63B00A67ECE /* ImageTinter */;
+			targetProxy = 2768AA502976C63C00A67ECE /* PBXContainerItemProxy */;
+		};
+		2768AA5B2976C63C00A67ECE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2768AA3D2976C63B00A67ECE /* ImageTinter */;
+			targetProxy = 2768AA5A2976C63C00A67ECE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2768AA472976C63C00A67ECE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2768AA482976C63C00A67ECE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2768AA612976C63C00A67ECE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2768AA622976C63C00A67ECE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		2768AA642976C63C00A67ECE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ImageTinter/ImageTinter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mzh.rx.ImageTinter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2768AA652976C63C00A67ECE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ImageTinter/ImageTinter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mzh.rx.ImageTinter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		2768AA672976C63C00A67ECE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mzh.rx.ImageTinterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageTinter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ImageTinter";
+			};
+			name = Debug;
+		};
+		2768AA682976C63C00A67ECE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mzh.rx.ImageTinterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageTinter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ImageTinter";
+			};
+			name = Release;
+		};
+		2768AA6A2976C63C00A67ECE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mzh.rx.ImageTinterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = ImageTinter;
+			};
+			name = Debug;
+		};
+		2768AA6B2976C63C00A67ECE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mzh.rx.ImageTinterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = ImageTinter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2768AA392976C63B00A67ECE /* Build configuration list for PBXProject "ImageTinter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2768AA612976C63C00A67ECE /* Debug */,
+				2768AA622976C63C00A67ECE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2768AA632976C63C00A67ECE /* Build configuration list for PBXNativeTarget "ImageTinter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2768AA642976C63C00A67ECE /* Debug */,
+				2768AA652976C63C00A67ECE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2768AA662976C63C00A67ECE /* Build configuration list for PBXNativeTarget "ImageTinterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2768AA672976C63C00A67ECE /* Debug */,
+				2768AA682976C63C00A67ECE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2768AA692976C63C00A67ECE /* Build configuration list for PBXNativeTarget "ImageTinterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2768AA6A2976C63C00A67ECE /* Debug */,
+				2768AA6B2976C63C00A67ECE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2768AA362976C63B00A67ECE /* Project object */;
+}
