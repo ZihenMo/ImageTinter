@@ -1,0 +1,77 @@
+PODS:
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - RxSwiftExt (6.0.1):
+    - RxSwiftExt/Core (= 6.0.1)
+    - RxSwiftExt/RxCocoa (= 6.0.1)
+  - RxSwiftExt/Core (6.0.1):
+    - RxSwift (~> 6.0)
+  - RxSwiftExt/RxCocoa (6.0.1):
+    - RxCocoa (~> 6.0)
+    - RxSwiftExt/Core
+  - SwifterSwift (5.2.0):
+    - SwifterSwift/AppKit (= 5.2.0)
+    - SwifterSwift/CoreAnimation (= 5.2.0)
+    - SwifterSwift/CoreGraphics (= 5.2.0)
+    - SwifterSwift/CoreLocation (= 5.2.0)
+    - SwifterSwift/Dispatch (= 5.2.0)
+    - SwifterSwift/Foundation (= 5.2.0)
+    - SwifterSwift/MapKit (= 5.2.0)
+    - SwifterSwift/SceneKit (= 5.2.0)
+    - SwifterSwift/SpriteKit (= 5.2.0)
+    - SwifterSwift/StoreKit (= 5.2.0)
+    - SwifterSwift/SwiftStdlib (= 5.2.0)
+    - SwifterSwift/UIKit (= 5.2.0)
+  - SwifterSwift/AppKit (5.2.0)
+  - SwifterSwift/CoreAnimation (5.2.0)
+  - SwifterSwift/CoreGraphics (5.2.0)
+  - SwifterSwift/CoreLocation (5.2.0)
+  - SwifterSwift/Dispatch (5.2.0)
+  - SwifterSwift/Foundation (5.2.0)
+  - SwifterSwift/MapKit (5.2.0)
+  - SwifterSwift/SceneKit (5.2.0)
+  - SwifterSwift/SpriteKit (5.2.0)
+  - SwifterSwift/StoreKit (5.2.0)
+  - SwifterSwift/SwiftStdlib (5.2.0)
+  - SwifterSwift/UIKit (5.2.0)
+  - SwiftUI-SimpleToast (0.6.2)
+
+DEPENDENCIES:
+  - RxCocoa (= 6.5.0)
+  - RxSwift (= 6.5.0)
+  - RxSwiftExt (= 6.0.1)
+  - SwifterSwift
+  - SwiftUI-SimpleToast (from `https://github.com/sanzaru/SimpleToast.git`)
+
+SPEC REPOS:
+  trunk:
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - RxSwiftExt
+    - SwifterSwift
+
+EXTERNAL SOURCES:
+  SwiftUI-SimpleToast:
+    :git: https://github.com/sanzaru/SimpleToast.git
+
+CHECKOUT OPTIONS:
+  SwiftUI-SimpleToast:
+    :commit: fa07f1ac558428e658db6a20685a5e7bb9201e02
+    :git: https://github.com/sanzaru/SimpleToast.git
+
+SPEC CHECKSUMS:
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
+  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
+  SwiftUI-SimpleToast: 34a7ede33ac00e1ab21cc114c041d68da5fbc6b3
+
+PODFILE CHECKSUM: 0c0467714ff056c7f1ba157af25ed7a102a24346
+
+COCOAPODS: 1.11.3

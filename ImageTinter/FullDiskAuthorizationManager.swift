@@ -48,7 +48,7 @@ public class FullDiskAuthorizationManager {
     /// 3. 其他情况未指定。
     func getAuthorizationStatus() -> FullDistakAuthorizationStatus {
         let isSandboxed = ProcessInfo.processInfo.environment["APP_SANDBOX_CONTAINER_ID"] != nil
-        var homePath = isSandboxed ? sandboxedHomePath : NSHomeDirectory()
+        let homePath = isSandboxed ? sandboxedHomePath : NSHomeDirectory()
         debugPrint("沙盒环境：\(isSandboxed)， home: \(homePath)")
         
         let configPath = homePath.appendingPathComponent("Library/Safari")
@@ -56,7 +56,7 @@ public class FullDiskAuthorizationManager {
         let configSubpaths = (try? FileManager.default.contentsOfDirectory(atPath: configPath)) ?? []
         debugPrint("Safari子目录:\(configSubpaths)")
         
-        if exists, !configSubpaths.isEmpty {
+        if exists, configSubpaths.isEmpty {
             return .denined
         } else if exists {
             return .authorized

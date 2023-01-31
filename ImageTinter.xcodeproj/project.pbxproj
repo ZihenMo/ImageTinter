@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273F6F1C2978E0B800096D26 /* FullDiskAuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F6F1B2978E0B800096D26 /* FullDiskAuthorizationManager.swift */; };
+		275B12662987B7CD00C95E2A /* Tinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B12652987B7CD00C95E2A /* Tinter.swift */; };
+		275B126829881C5E00C95E2A /* DragFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B126729881C5E00C95E2A /* DragFileView.swift */; };
 		2768AA422976C63B00A67ECE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768AA412976C63B00A67ECE /* AppDelegate.swift */; };
 		2768AA442976C63B00A67ECE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768AA432976C63B00A67ECE /* ViewController.swift */; };
 		2768AA462976C63C00A67ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2768AA452976C63C00A67ECE /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 		2768AA542976C63C00A67ECE /* ImageTinterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768AA532976C63C00A67ECE /* ImageTinterTests.swift */; };
 		2768AA5E2976C63C00A67ECE /* ImageTinterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768AA5D2976C63C00A67ECE /* ImageTinterUITests.swift */; };
 		2768AA602976C63C00A67ECE /* ImageTinterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768AA5F2976C63C00A67ECE /* ImageTinterUITestsLaunchTests.swift */; };
+		4090A7236DC0B52F41E06BF1 /* Pods_ImageTinterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C107BBACDF0A9A036CAC0 /* Pods_ImageTinterTests.framework */; };
+		6516CA7360842FE9B2F74FB9 /* Pods_ImageTinter_ImageTinterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D19C00A53E0574A6CD25BED1 /* Pods_ImageTinter_ImageTinterUITests.framework */; };
+		C002BA5AF6E04358D0B5C67E /* Pods_ImageTinter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C23EAAC7C1E7690564557C /* Pods_ImageTinter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2212B6B251631487ED3A395D /* Pods-ImageTinterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageTinterTests.release.xcconfig"; path = "Target Support Files/Pods-ImageTinterTests/Pods-ImageTinterTests.release.xcconfig"; sourceTree = "<group>"; };
+		273F6F1B2978E0B800096D26 /* FullDiskAuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiskAuthorizationManager.swift; sourceTree = "<group>"; };
+		275B12652987B7CD00C95E2A /* Tinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tinter.swift; sourceTree = "<group>"; };
+		275B126729881C5E00C95E2A /* DragFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragFileView.swift; sourceTree = "<group>"; };
 		2768AA3E2976C63B00A67ECE /* ImageTinter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageTinter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2768AA412976C63B00A67ECE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2768AA432976C63B00A67ECE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +55,14 @@
 		2768AA592976C63C00A67ECE /* ImageTinterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageTinterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2768AA5D2976C63C00A67ECE /* ImageTinterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTinterUITests.swift; sourceTree = "<group>"; };
 		2768AA5F2976C63C00A67ECE /* ImageTinterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTinterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5A6C107BBACDF0A9A036CAC0 /* Pods_ImageTinterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageTinterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A92ED9C943A47363E7A0C6E /* Pods-ImageTinter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageTinter.debug.xcconfig"; path = "Target Support Files/Pods-ImageTinter/Pods-ImageTinter.debug.xcconfig"; sourceTree = "<group>"; };
+		99C23EAAC7C1E7690564557C /* Pods_ImageTinter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageTinter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACFEB3832BBD4D33DE939D99 /* Pods-ImageTinter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageTinter.release.xcconfig"; path = "Target Support Files/Pods-ImageTinter/Pods-ImageTinter.release.xcconfig"; sourceTree = "<group>"; };
+		B6243F18789B1C359EFBFEA1 /* Pods-ImageTinter-ImageTinterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageTinter-ImageTinterUITests.release.xcconfig"; path = "Target Support Files/Pods-ImageTinter-ImageTinterUITests/Pods-ImageTinter-ImageTinterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BC173EA359851FF11F68C17C /* Pods-ImageTinterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageTinterTests.debug.xcconfig"; path = "Target Support Files/Pods-ImageTinterTests/Pods-ImageTinterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D19C00A53E0574A6CD25BED1 /* Pods_ImageTinter_ImageTinterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageTinter_ImageTinterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDB9959A2BCCF562FBCF888B /* Pods-ImageTinter-ImageTinterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageTinter-ImageTinterUITests.debug.xcconfig"; path = "Target Support Files/Pods-ImageTinter-ImageTinterUITests/Pods-ImageTinter-ImageTinterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C002BA5AF6E04358D0B5C67E /* Pods_ImageTinter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4090A7236DC0B52F41E06BF1 /* Pods_ImageTinterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6516CA7360842FE9B2F74FB9 /* Pods_ImageTinter_ImageTinterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +100,8 @@
 				2768AA522976C63C00A67ECE /* ImageTinterTests */,
 				2768AA5C2976C63C00A67ECE /* ImageTinterUITests */,
 				2768AA3F2976C63B00A67ECE /* Products */,
+				7278F0BD2ED6F2C2A6722252 /* Pods */,
+				44217BBF6D74A220A32984B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +123,9 @@
 				2768AA452976C63C00A67ECE /* Assets.xcassets */,
 				2768AA472976C63C00A67ECE /* Main.storyboard */,
 				2768AA4A2976C63C00A67ECE /* ImageTinter.entitlements */,
+				273F6F1B2978E0B800096D26 /* FullDiskAuthorizationManager.swift */,
+				275B12652987B7CD00C95E2A /* Tinter.swift */,
+				275B126729881C5E00C95E2A /* DragFileView.swift */,
 			);
 			path = ImageTinter;
 			sourceTree = "<group>";
@@ -121,6 +147,29 @@
 			path = ImageTinterUITests;
 			sourceTree = "<group>";
 		};
+		44217BBF6D74A220A32984B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99C23EAAC7C1E7690564557C /* Pods_ImageTinter.framework */,
+				D19C00A53E0574A6CD25BED1 /* Pods_ImageTinter_ImageTinterUITests.framework */,
+				5A6C107BBACDF0A9A036CAC0 /* Pods_ImageTinterTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7278F0BD2ED6F2C2A6722252 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A92ED9C943A47363E7A0C6E /* Pods-ImageTinter.debug.xcconfig */,
+				ACFEB3832BBD4D33DE939D99 /* Pods-ImageTinter.release.xcconfig */,
+				DDB9959A2BCCF562FBCF888B /* Pods-ImageTinter-ImageTinterUITests.debug.xcconfig */,
+				B6243F18789B1C359EFBFEA1 /* Pods-ImageTinter-ImageTinterUITests.release.xcconfig */,
+				BC173EA359851FF11F68C17C /* Pods-ImageTinterTests.debug.xcconfig */,
+				2212B6B251631487ED3A395D /* Pods-ImageTinterTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2768AA632976C63C00A67ECE /* Build configuration list for PBXNativeTarget "ImageTinter" */;
 			buildPhases = (
+				899D24A074FD290685AB94B0 /* [CP] Check Pods Manifest.lock */,
 				2768AA3A2976C63B00A67ECE /* Sources */,
 				2768AA3B2976C63B00A67ECE /* Frameworks */,
 				2768AA3C2976C63B00A67ECE /* Resources */,
+				C114B10B64C7A9F91BDDF558 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,6 +196,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2768AA662976C63C00A67ECE /* Build configuration list for PBXNativeTarget "ImageTinterTests" */;
 			buildPhases = (
+				7D9149290E24E7D110C76570 /* [CP] Check Pods Manifest.lock */,
 				2768AA4B2976C63C00A67ECE /* Sources */,
 				2768AA4C2976C63C00A67ECE /* Frameworks */,
 				2768AA4D2976C63C00A67ECE /* Resources */,
@@ -163,9 +215,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2768AA692976C63C00A67ECE /* Build configuration list for PBXNativeTarget "ImageTinterUITests" */;
 			buildPhases = (
+				CAC9B3D1223BE56AA302DFEA /* [CP] Check Pods Manifest.lock */,
 				2768AA552976C63C00A67ECE /* Sources */,
 				2768AA562976C63C00A67ECE /* Frameworks */,
 				2768AA572976C63C00A67ECE /* Resources */,
+				0E90255F717E198BAFFED347 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,7 +255,7 @@
 				};
 			};
 			buildConfigurationList = 2768AA392976C63B00A67ECE /* Build configuration list for PBXProject "ImageTinter" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -246,12 +300,118 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0E90255F717E198BAFFED347 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImageTinter-ImageTinterUITests/Pods-ImageTinter-ImageTinterUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImageTinter-ImageTinterUITests/Pods-ImageTinter-ImageTinterUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ImageTinter-ImageTinterUITests/Pods-ImageTinter-ImageTinterUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D9149290E24E7D110C76570 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImageTinterTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		899D24A074FD290685AB94B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImageTinter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C114B10B64C7A9F91BDDF558 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImageTinter/Pods-ImageTinter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImageTinter/Pods-ImageTinter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ImageTinter/Pods-ImageTinter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAC9B3D1223BE56AA302DFEA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImageTinter-ImageTinterUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2768AA3A2976C63B00A67ECE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2768AA442976C63B00A67ECE /* ViewController.swift in Sources */,
+				275B12662987B7CD00C95E2A /* Tinter.swift in Sources */,
+				273F6F1C2978E0B800096D26 /* FullDiskAuthorizationManager.swift in Sources */,
+				275B126829881C5E00C95E2A /* DragFileView.swift in Sources */,
 				2768AA422976C63B00A67ECE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +575,7 @@
 		};
 		2768AA642976C63C00A67ECE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A92ED9C943A47363E7A0C6E /* Pods-ImageTinter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -440,6 +601,7 @@
 		};
 		2768AA652976C63C00A67ECE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACFEB3832BBD4D33DE939D99 /* Pods-ImageTinter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -465,6 +627,7 @@
 		};
 		2768AA672976C63C00A67ECE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC173EA359851FF11F68C17C /* Pods-ImageTinterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -483,6 +646,7 @@
 		};
 		2768AA682976C63C00A67ECE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2212B6B251631487ED3A395D /* Pods-ImageTinterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -501,6 +665,7 @@
 		};
 		2768AA6A2976C63C00A67ECE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDB9959A2BCCF562FBCF888B /* Pods-ImageTinter-ImageTinterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -517,6 +682,7 @@
 		};
 		2768AA6B2976C63C00A67ECE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6243F18789B1C359EFBFEA1 /* Pods-ImageTinter-ImageTinterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
