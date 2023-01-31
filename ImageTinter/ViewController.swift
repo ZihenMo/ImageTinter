@@ -126,7 +126,7 @@ class ViewController: NSViewController {
     
     @objc func colorPanelSelectedColor(_ sender: NSColorPanel) {
         selectedColor = sender.color
-        colorButton.bezelColor = selectedColor
+        colorButton.backgroundColor = selectedColor
         colorLabel.stringValue = selectedColor?.hexString ?? ""
         processPreview()
     }

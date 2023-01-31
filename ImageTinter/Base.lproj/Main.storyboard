@@ -332,7 +332,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8a-vN-MU4">
-                                        <rect key="frame" x="0.0" y="0.0" width="153" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="20"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UCw-kv-Ysx">
                                                 <rect key="frame" x="-2" y="2" width="35" height="16"/>
@@ -343,22 +343,22 @@
                                                 </textFieldCell>
                                             </textField>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iQH-Zc-HJ6">
-                                                <rect key="frame" x="32" y="-7" width="64" height="32"/>
+                                                <rect key="frame" x="39" y="0.0" width="50" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="3wA-58-dSR"/>
                                                     <constraint firstAttribute="height" constant="20" id="J5J-rj-F9A"/>
                                                 </constraints>
-                                                <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="C6U-fx-fUv">
+                                                <buttonCell key="cell" type="inline" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="C6U-fx-fUv">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
+                                                    <font key="font" metaFont="smallSystemBold"/>
                                                 </buttonCell>
-                                                <color key="bezelColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="bezelColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
-                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -366,8 +366,8 @@
                                                 </connections>
                                             </button>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BJC-n8-eW7">
-                                                <rect key="frame" x="95" y="2" width="60" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="#FF0000" id="v8K-Vm-L07">
+                                                <rect key="frame" x="95" y="2" width="57" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="#FFFFFF" id="v8K-Vm-L07">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
