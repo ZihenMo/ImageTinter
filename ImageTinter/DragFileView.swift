@@ -40,15 +40,16 @@ class DragFileView: NSTableView {
         return types?.contains(where: { type in registeredDraggedTypes.contains(where: { $0 == type }) }) ?? false
     }
     
-    override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        let pboard = sender.draggingPasteboard
-        debugPrint("drop type: \(String(describing: pboard.types))")
-        if containsRegisterdDraggedType(types: pboard.types) {
-            let imagePath = pboard.propertyList(forType: draggedType.first!)
-            if let filePath = imagePath as? String, let url = URL(string: filePath) {
-                draggedDelegate?.dragFileView(self, didDroped: url)
-            }
-        }
-        return true
-    }
+    
+//    override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
+//        let pboard = sender.draggingPasteboard
+//        debugPrint("drop type: \(String(describing: pboard.types))")
+//        if containsRegisterdDraggedType(types: pboard.types) {
+//            let imagePath = pboard.propertyList(forType: draggedType.first!)
+//            if let filePath = imagePath as? String, let url = URL(string: filePath) {
+//                draggedDelegate?.dragFileView(self, didDroped: url)
+//            }
+//        }
+//        return true
+//    }
 }

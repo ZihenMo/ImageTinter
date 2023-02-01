@@ -10,6 +10,7 @@
 		273F6F1C2978E0B800096D26 /* FullDiskAuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F6F1B2978E0B800096D26 /* FullDiskAuthorizationManager.swift */; };
 		275B12662987B7CD00C95E2A /* Tinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B12652987B7CD00C95E2A /* Tinter.swift */; };
 		275B126829881C5E00C95E2A /* DragFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B126729881C5E00C95E2A /* DragFileView.swift */; };
+		275B126A2989367300C95E2A /* SVGTinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B12692989367300C95E2A /* SVGTinter.swift */; };
 		2768AA422976C63B00A67ECE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768AA412976C63B00A67ECE /* AppDelegate.swift */; };
 		2768AA442976C63B00A67ECE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768AA432976C63B00A67ECE /* ViewController.swift */; };
 		2768AA462976C63C00A67ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2768AA452976C63C00A67ECE /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		273F6F1B2978E0B800096D26 /* FullDiskAuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiskAuthorizationManager.swift; sourceTree = "<group>"; };
 		275B12652987B7CD00C95E2A /* Tinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tinter.swift; sourceTree = "<group>"; };
 		275B126729881C5E00C95E2A /* DragFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragFileView.swift; sourceTree = "<group>"; };
+		275B12692989367300C95E2A /* SVGTinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGTinter.swift; sourceTree = "<group>"; };
 		2768AA3E2976C63B00A67ECE /* ImageTinter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageTinter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2768AA412976C63B00A67ECE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2768AA432976C63B00A67ECE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				273F6F1B2978E0B800096D26 /* FullDiskAuthorizationManager.swift */,
 				275B12652987B7CD00C95E2A /* Tinter.swift */,
 				275B126729881C5E00C95E2A /* DragFileView.swift */,
+				275B12692989367300C95E2A /* SVGTinter.swift */,
 			);
 			path = ImageTinter;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				275B126A2989367300C95E2A /* SVGTinter.swift in Sources */,
 				2768AA442976C63B00A67ECE /* ViewController.swift in Sources */,
 				275B12662987B7CD00C95E2A /* Tinter.swift in Sources */,
 				273F6F1C2978E0B800096D26 /* FullDiskAuthorizationManager.swift in Sources */,
@@ -591,6 +595,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mzh.rx.ImageTinter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -617,6 +622,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mzh.rx.ImageTinter;
 				PRODUCT_NAME = "$(TARGET_NAME)";

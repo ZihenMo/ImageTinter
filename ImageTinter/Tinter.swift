@@ -9,11 +9,17 @@ import AppKit
 import Cocoa
 import Quartz
 
-class Tinter {
+class PDFTinter {
     let pathExtension = "pdf"
     
     private let fullDiskAuthorizationManager = FullDiskAuthorizationManager.shared
 
+    func scanImages(_ URLs: [URL]) -> [NSImage] {
+        guard !URLs.isEmpty else { return [] }
+        return URLs.compactMap {
+            return NSImage(contentsOf: $0)
+        }
+    }
     
     func tint(imageURLs: [URL], tintColor: NSColor) -> [NSImage] {
         let images = imageURLs.compactMap {

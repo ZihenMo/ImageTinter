@@ -10,6 +10,8 @@ target 'ImageTinter' do
   pod 'RxCocoa', '6.5.0'
   pod 'RxSwiftExt', '6.0.1'
   pod 'SwiftUI-SimpleToast', :git => 'https://github.com/sanzaru/SimpleToast.git'
+  pod 'SwiftSoup'
+  pod 'SVGKit', '~>3.0.0'
 
   # Pods for ImageTinter
 
