@@ -22,7 +22,19 @@ protocol Tinter {
 class SVGTinter: Tinter {
     let pathExtension = "svg"
     let tintedPathExtension = "pdf"
-    var toolPath = "/usr/local/bin/rsvg-convert"
+    var toolPath: String {
+        get {
+            let defaultPath = "/usr/local/bin/rsvg-convert"
+            if let toolPath = UserDefaults.standard.object(forKey: "ToolPath") as? String {
+                return toolPath
+            }
+            return defaultPath
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "ToolPath")
+            UserDefaults.standard.synchronize()
+        }
+    }
     
     let logs = BehaviorRelay<String>(value: "")
     
