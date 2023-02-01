@@ -21,6 +21,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var colorButton: NSButton!
     @IBOutlet weak var colorLabel: NSTextField!
     
+    @IBOutlet weak var toolPathField: NSTextField!
     var tinter = SVGTinter()
         
     let sourceId = NSUserInterfaceItemIdentifier("source")
@@ -65,6 +66,7 @@ class ViewController: NSViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        toolPathField.stringValue = tinter.toolPath
         bind()
     }
     
@@ -84,6 +86,11 @@ class ViewController: NSViewController {
                 self.logPanel.textView.string = string + "\n" + log
             })
         .disposed(by: disposeBag)
+        
+        toolPathField.rx.text.changed.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            self.tinter.toolPath = self.toolPathField.stringValue
+        }).disposed(by: disposeBag)
         
     }
         

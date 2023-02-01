@@ -22,6 +22,7 @@ protocol Tinter {
 class SVGTinter: Tinter {
     let pathExtension = "svg"
     let tintedPathExtension = "pdf"
+    var toolPath = "/usr/local/bin/rsvg-convert"
     
     let logs = BehaviorRelay<String>(value: "")
     
@@ -153,8 +154,12 @@ class SVGTinter: Tinter {
         let pdfPath = pdfUrl.absoluteString.removingPrefix("file://")
         let svgPath = svgDirPath.appendingPathComponent(fileName)
 
+        let toolPath = shell("which rsvg-convert")
+        if toolPath.isEmpty {
+            logs.accept("找不到libsvg路径，请配置正确路径")
+        }
         /// 不能使用带有空格的目录！
-        let commond = "/usr/local/bin/rsvg-convert -d 72 -p 72 -f pdf -o \(pdfPath) \(svgPath)"
+            let commond = "\(self.toolPath) -d 72 -p 72 -f pdf -o \(pdfPath) \(svgPath)"
         logs.accept("commonad: \(commond)")
 
         let op2 = shell(commond)
