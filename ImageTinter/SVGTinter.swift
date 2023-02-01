@@ -45,8 +45,8 @@ class SVGTinter: Tinter {
     }()
         
     func scanImages(_ URLs: [URL]) -> [NSImage] {
-        sourceURLs = URLs
-        return URLs.compactMap {
+        sourceURLs = URLs.sorted(by: \.lastPathComponent)
+        return sourceURLs.compactMap {
             NSImage(contentsOf: $0)
         }
     }
@@ -58,8 +58,11 @@ class SVGTinter: Tinter {
         }.reduce([:]) { result, item in
             return result.merging(item, uniquingKeysWith: { k1, k2 in return k2 })
         }
-        return tintedSVGString
-            .compactMap { (_, string) in
+        return tintedSVGString.map { $0.0 }.sorted(by: \.lastPathComponent)
+            .compactMap {
+                tintedSVGString[$0]
+            }
+            .compactMap { string in
                 if let data = string.data(using: .utf8) {
                     return NSImage(data: data)
                 }
