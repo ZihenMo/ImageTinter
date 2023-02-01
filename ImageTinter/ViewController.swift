@@ -51,7 +51,7 @@ class ViewController: NSViewController {
     lazy var logPanel: LogPanel = {
         let panel = LogPanel(
             contentRect: self.view.bounds,
-            styleMask: .closable,
+            styleMask: [.closable, .resizable, .titled],
             backing: .buffered,
             defer: true
         )
@@ -229,21 +229,39 @@ extension ViewController: DragFileViewDelegate {
 class LogPanel: NSPanel {
     lazy var textView = NSTextView()
     
+    lazy var scrollView: NSScrollView = {
+        let scrollView = NSScrollView()
+        scrollView.drawsBackground = false
+        scrollView.hasHorizontalScroller = false
+        scrollView.hasVerticalScroller = true
+        scrollView.autohidesScrollers = true
+        
+        return scrollView
+    }()
+    
     override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
         super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
         makeUI()
     }
     
     func makeUI() {
+        textView.isVerticallyResizable = true
+        textView.font = .systemFont(ofSize: 14)
         textView.window?.title = "日志"
         textView.isEditable = false
-        self.contentView?.addSubview(textView)
-        if let contentView = contentView {
-            textView.translatesAutoresizingMaskIntoConstraints = false
-            textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40).isActive = true
-            textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
-            textView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40).isActive = true
-            textView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40).isActive = true
+        scrollView.documentView = textView
+        textView.autoresizingMask = .width
+        textView.minSize = CGSize(width: 400, height: 600)
+        
+        if let scrollView = textView.enclosingScrollView, let contentView = contentView {
+            contentView.addSubview(scrollView)
+            scrollView.translatesAutoresizingMaskIntoConstraints = false
+            scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40).isActive = true
+            scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
+            scrollView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40).isActive = true
+            scrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40).isActive = true
         }
     }
 }
+
+
