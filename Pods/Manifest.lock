@@ -16,6 +16,7 @@ PODS:
   - RxSwiftExt/RxCocoa (6.0.1):
     - RxCocoa (~> 6.0)
     - RxSwiftExt/Core
+  - SnapKit (5.6.0)
   - SVGKit (3.0.0):
     - CocoaLumberjack (~> 3.0)
   - SwifterSwift (5.2.0):
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
   - RxSwiftExt (= 6.0.1)
+  - SnapKit
   - SVGKit (~> 3.0.0)
   - SwifterSwift
   - SwiftSoup
@@ -62,6 +64,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - RxSwiftExt
+    - SnapKit
     - SVGKit
     - SwifterSwift
     - SwiftSoup
@@ -81,11 +84,12 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftSoup: 3384f2e618cfc1b3cbc7852c16692fe8de13fb8f
   SwiftUI-SimpleToast: 34a7ede33ac00e1ab21cc114c041d68da5fbc6b3
 
-PODFILE CHECKSUM: a7024eda892766bc30faec26d6cd4fdfa6933faf
+PODFILE CHECKSUM: e075b92a9b3191454911e1db8d13500e044cf656
 
 COCOAPODS: 1.11.3

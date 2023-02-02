@@ -10,16 +10,21 @@ import RxSwift
 import RxRelay
 import AppKit
 
-protocol Tinter {
-    func scanImages(_ URLs: [URL]) -> [NSImage]
+class ImageInfo {
+    var url: URL?
+    var color: NSColor?
+    var image: NSImage?
+    var dom: String
     
-    func tint(_ tintColor: NSColor) -> [NSImage]
-    
-    func save(on url: URL)
+    init(url: URL? = nil, color: NSColor? = nil, image: NSImage? = nil, dom: String) {
+        self.url = url
+        self.color = color
+        self.image = image
+        self.dom = dom
+    }
 }
 
-
-class SVGTinter: Tinter {
+class SVGTinter {
     let pathExtension = "svg"
     let tintedPathExtension = "pdf"
     var toolPath: String {
@@ -38,8 +43,8 @@ class SVGTinter: Tinter {
     
     let logs = BehaviorRelay<String>(value: "")
     
-    var sourceURLs: [URL] = []
-    var tintedSVGString: [String: String] = [:]
+    var sourceImages: [ImageInfo] = []
+    var tintedSVGString: [String: ImageInfo] = [:]
     var tintedURLs: [URL] = []
         
     lazy var cacheURL: URL = {
@@ -57,59 +62,112 @@ class SVGTinter: Tinter {
         return url
     }()
         
-    func scanImages(_ URLs: [URL]) -> [NSImage] {
-        sourceURLs = URLs.sorted(by: \.lastPathComponent)
-        return sourceURLs.compactMap {
-            NSImage(contentsOf: $0)
+    /// 从svg文件提取颜色
+    private func pickColor(from url: URL) -> NSColor? {
+        do {
+            let domString = try String(contentsOf: url)
+            return pickColor(from: domString)
+        } catch {
+            logs.accept("读取svg失败：\(error)")
         }
+        return nil
+    }
+    
+    private func pickColor(from svgDom: String) -> NSColor? {
+        do {
+            let dom = try SwiftSoup.parse(svgDom)
+            let pathElements = try dom.select("path")
+            for e in pathElements {
+                if let colorHexString = try? e.attr("fill") {
+                    return NSColor(hexString: colorHexString)
+                }
+            }
+        } catch {
+            logs.accept("提取svg颜色失败: \(error)")
+        }
+        return nil
+    }
+    
+    private func makeImageInfo(from url: URL) -> ImageInfo? {
+        if let data = try? Data(contentsOf: url),
+           let string = data.string(encoding: .utf8),
+           let image = NSImage(data: data) {
+            let color = pickColor(from: string)
+            return ImageInfo(url: url, color: color, image: image, dom: string)
+        }
+        return nil
     }
 
-    func tint(_ tintColor: NSColor) -> [NSImage] {
-        clean()
-        tintedSVGString = sourceURLs.map { url -> [String: String] in
-            parseAndTint(url, tintColor: tintColor)
-        }.reduce([:]) { result, item in
-            return result.merging(item, uniquingKeysWith: { k1, k2 in return k2 })
+    /// 扫描图片
+    func scanImages(_ URLs: [URL]) -> [ImageInfo] {
+        let sourceURLs = URLs.sorted(by: \.lastPathComponent)
+        sourceImages = sourceURLs.compactMap {
+            return makeImageInfo(from: $0)
         }
-        return tintedSVGString.map { $0.0 }.sorted(by: \.lastPathComponent)
-            .compactMap {
-                tintedSVGString[$0]
-            }
-            .compactMap { string in
-                if let data = string.data(using: .utf8) {
-                    return NSImage(data: data)
+        return sourceImages
+    }
+                
+    func tint(_ tintColor: NSColor?, autoPickColor: Bool = true) -> [ImageInfo] {
+        clean()
+        tintedSVGString = sourceImages
+            .compactMap { imageInfo in
+                if autoPickColor {
+                    if let color = imageInfo.color,
+                       let tintedColor = ColorConfig.shared.tintedColor(with: color) {
+                        return parseAndTint(imageInfo, tintColor: tintedColor)
+                    }
+                } else if let tintedColor = tintColor{
+                    return parseAndTint(imageInfo, tintColor: tintedColor)
                 }
                 return nil
             }
+            .reduce([:]) { result, item in
+                return result.merging(item, uniquingKeysWith: { k1, k2 in return k2 })
+            }
+        
+        return tintedSVGString
+            .map { $0.0 }
+            .sorted(by: \.lastPathComponent)
+            .compactMap {
+                tintedSVGString[$0]
+            }
     }
     
-    private func parseAndTint(_ url: URL, tintColor: NSColor) -> [String: String] {
+    private func parseAndTint(_ imageInfo: ImageInfo, tintColor: NSColor) -> [String: ImageInfo] {
         do {
-            let domString = try String(contentsOf: url)
-            let dom = try SwiftSoup.parse(domString)
+            guard let url = imageInfo.url else { return [:] }
+            let dom = try SwiftSoup.parse(imageInfo.dom)
             let pathElements = try dom.select("path")
             for e in pathElements {
                 try e.attr("fill", tintColor.hexString)
             }
             let string = try dom.select("svg").toString()
-            let hexString = tintColor.hexString.removingPrefix("#")
-            let fileName = makeTintedFileName(url, suffix: "_" + hexString)
-            return [fileName: string]
+            let fileName = makeTintedFileName(url, suffix: suffix(tintedColor: tintColor))
+            
+            var image: NSImage? = nil
+            if let data = string.data(using: .utf8) {
+                image = NSImage(data: data)
+            }
+            return [fileName: ImageInfo(color: tintColor, image: image, dom: string)]
         } catch {
             logs.accept("解析SVG失败, error: \(error)")
         }
         return [:]
     }
     
+    func suffix(tintedColor: NSColor)-> String {
+        return "_" + tintedColor.hexString.removingPrefix("#")
+    }
+    
     private func writeAllCache() {
         clean()
         logs.accept("保存临时文件至：\(cacheURL)")
-        tintedSVGString.forEach { (fileName, string) in
+        tintedSVGString.forEach { (fileName, imageInfo) in
             var svgURL = cacheURL
             svgURL.appendPathComponent(fileName)
             svgURL.appendPathExtension(pathExtension)
             tintedURLs.append(svgURL)
-            writeCache(string, url: svgURL)
+            writeCache(imageInfo.dom, url: svgURL)
         }
     }
     
@@ -136,8 +194,11 @@ class SVGTinter: Tinter {
     }
     
     private func saveSourceFileToPDF(on dir: URL) {
-        guard let svgDirPath = sourceURLs.first?.absoluteString.removingPrefix("file://").deletingLastPathComponent else { return }
-        convertAllSVGToPDF(urls: sourceURLs, on: dir, svgDirPath: svgDirPath)
+        guard let svgDirPath = sourceImages.first?.url?.absoluteString.removingPrefix("file://").deletingLastPathComponent else {
+            return
+            
+        }
+        convertAllSVGToPDF(urls: sourceImages.compactMap(by: \.url), on: dir, svgDirPath: svgDirPath)
     }
     
     private func saveTintedFileToPDF(on dir: URL) {

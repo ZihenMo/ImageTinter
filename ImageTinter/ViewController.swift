@@ -21,6 +21,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var colorButton: NSButton!
     @IBOutlet weak var colorLabel: NSTextField!
     
+    @IBOutlet weak var autoColorButton: NSButton!
+    @IBOutlet weak var customColorButton: NSButton!
+    
     @IBOutlet weak var toolPathField: NSTextField!
     var tinter = SVGTinter()
         
@@ -28,16 +31,12 @@ class ViewController: NSViewController {
     let destinationId = NSUserInterfaceItemIdentifier("destination")
     
     var sourceURLs: [URL] = []
-    var sourceImages: [NSImage] = []
-    var destinationImages: [NSImage] = []
-    var selectedColor: NSColor?
+    var sourceImages: [ImageInfo] = []
+    var destinationImages: [ImageInfo] = []
+    var selectedColor: NSColor = .white
     
     var suffix: String {
-        if var hexString = selectedColor?.hexString {
-            hexString.removeFirst()
-            return "_" + hexString
-        }
-        return "_dark"
+        return "_" + selectedColor.hexString.removingPrefix("#")
     }
 
     lazy var colorPanel: NSColorPanel = {
@@ -62,29 +61,40 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeUI()
+        bind()
+    }
+    
+    func makeUI() {
         tableView.draggedDelegate = self
         tableView.delegate = self
         tableView.dataSource = self
         
+        let sourceColumn = NSTableColumn(identifier: sourceId)
+        let tintedColumn = NSTableColumn(identifier: destinationId)
+        let columnWidth =  tableView.width / 2
+        sourceColumn.width = columnWidth
+        tintedColumn.width = columnWidth
+        sourceColumn.title = "源"
+        tintedColumn.title = "目标"
+        
+        tableView.addTableColumn(sourceColumn)
+        tableView.addTableColumn(tintedColumn)
+        
         toolPathField.stringValue = tinter.toolPath
-        bind()
     }
     
     func bind() {
-        tinter
-            .logs
-            .subscribe(onNext: { log in
-                print(log)
-            })
-            .disposed(by: disposeBag)
-        
-        tinter
-            .logs
-            .subscribe(onNext: { [weak self] log in
-                guard let self = self else { return }
-                let string = self.logPanel.textView.string
-                self.logPanel.textView.string = string + "\n" + log
-            })
+        let logs = Observable<String>.merge(
+            tinter.logs.asObservable().skip(1),
+            ColorConfig.shared.log.asObservable().skip(1)
+        )
+        logs.subscribe(onNext: { [weak self] log in
+            guard let self = self else { return }
+            print(log)
+            let string = self.logPanel.textView.string
+            self.logPanel.textView.string = string + "\n" + log
+        })
         .disposed(by: disposeBag)
         
         toolPathField.rx.text.changed.subscribe(onNext: { [weak self] _ in
@@ -92,6 +102,42 @@ class ViewController: NSViewController {
             self.tinter.toolPath = self.toolPathField.stringValue
         }).disposed(by: disposeBag)
         
+        customColorButton
+            .rx
+            .state
+            .map {
+                switch $0 {
+                case .on:
+                    return true
+                default:
+                    return false
+                }
+            }
+            .bind(to: colorButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        autoColorButton
+            .rx
+            .state
+            .filter { state in
+                return state == .on
+            }
+            .subscribe(onNext: { [weak self] _ in
+                self?.colorPanel.orderOut(nil)
+                self?.colorButton.isEnabled = false
+                self?.processPreview()
+            })
+            .disposed(by: disposeBag)
+        
+        customColorButton
+            .rx
+            .state
+            .map {
+                return $0 == .on ? .off : .on
+            }
+            .bind(to: autoColorButton.rx.state)
+            .disposed(by: disposeBag)
+                
     }
         
     @IBAction func selectSourcePath(_ sender: Any) {
@@ -132,16 +178,14 @@ class ViewController: NSViewController {
     
     
     @IBAction func selectColor(_ sender: Any) {
-        if let selectedColor = selectedColor {
-            colorPanel.color = selectedColor
-        }
+        colorPanel.color = selectedColor
         colorPanel.orderFront(nil)
     }
     
     @objc func colorPanelSelectedColor(_ sender: NSColorPanel) {
         selectedColor = sender.color
         colorButton.backgroundColor = selectedColor
-        colorLabel.stringValue = selectedColor?.hexString ?? ""
+        colorLabel.stringValue = selectedColor.hexString
         processPreview()
     }
     
@@ -152,11 +196,7 @@ class ViewController: NSViewController {
         sourceURLs = imageURLs
         sourceImages = tinter.scanImages(imageURLs)
     
-        if selectedColor != nil {
-            processPreview()
-        } else {        
-            tableView.reloadData()
-        }
+        processPreview()
     }
     
     @IBAction func openLogPannel(_ sender: NSButton) {
@@ -197,9 +237,12 @@ class ViewController: NSViewController {
     }
     
     func processPreview() {
-        guard let selectedColor = selectedColor else { return }
+        if autoColorButton.state == .on {
+            destinationImages = tinter.tint(nil, autoPickColor: true)
+        } else {
+            destinationImages = tinter.tint(selectedColor, autoPickColor: false)
+        }
         saveButton.isEnabled = true
-        destinationImages = tinter.tint(selectedColor)
         tableView.reloadData()
     }
 }
@@ -210,15 +253,24 @@ extension ViewController: NSTableViewDataSource {
         return sourceImages.count
     }
     
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        switch tableColumn?.identifier {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        guard let id = tableColumn?.identifier else { return nil }
+        let width: CGFloat = tableView.width / 2
+        let height: CGFloat = 50
+        let cell = ImageCellView(frame: NSRect(x: 0, y: 0, width: width, height: height))
+        switch id {
         case sourceId:
-            return sourceImages[safe: row]
+            let imageInfo = sourceImages[safe: row]
+            cell.iconView.image = imageInfo?.image
+            cell.colorLabel.stringValue = imageInfo?.color?.hexString ?? ""
         case destinationId:
-            return destinationImages[safe: row]
+            let imageInfo = destinationImages[safe: row]
+            cell.iconView.image = imageInfo?.image
+            cell.colorLabel.stringValue = imageInfo?.color?.hexString ?? ""
         default:
-            return nil
+            return cell
         }
+        return cell
     }
 }
 

@@ -68,22 +68,6 @@ class PDFTinter {
     func save(_ image: NSImage, on url: URL) {
         let pdf = createPDFDocument(image: image)
         pdf.write(to: url)
-        
-//        let data = createPDF(image: image) as Data
-//        do {
-//            try data.write(to: url)
-//        } catch {
-//            let alert = NSAlert()
-//            alert.messageText = "保存文件失败，请添加全盘访问权限或更换目录再试"
-//            alert.addButton(withTitle: "添加权限")
-//            alert.addButton(withTitle: "稍后再说")
-//            alert.beginSheetModal(for: NSApplication.shared.keyWindow!) { [weak self] code in
-//                if code == .OK {
-//                    self?.fullDiskAuthorizationManager.requestAuthorization()
-//                }
-//            }
-//            debugPrint("保存pdf格式失败, error: \(error)")
-//        }
     }
     
     func createPDFDocument(image: NSImage) -> PDFDocument {

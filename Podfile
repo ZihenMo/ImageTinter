@@ -12,6 +12,7 @@ target 'ImageTinter' do
   pod 'SwiftUI-SimpleToast', :git => 'https://github.com/sanzaru/SimpleToast.git'
   pod 'SwiftSoup'
   pod 'SVGKit', '~>3.0.0'
+  pod 'SnapKit'
 
   # Pods for ImageTinter
 

@@ -5,8 +5,8 @@
 //  Created by vino on 2023/1/30.
 //
 
-import Foundation
 import AppKit
+import SnapKit
 
 protocol DragFileViewDelegate: AnyObject {
     func dragFileView(_ view: DragFileView, didDroped url: URL)
@@ -52,4 +52,44 @@ class DragFileView: NSTableView {
 //        }
 //        return true
 //    }
+}
+
+
+class ImageCellView: NSTableCellView {
+    lazy var iconView: NSImageView = {
+        let view = NSImageView()
+        return view
+    }()
+    
+    var colorLabel: NSTextField = {
+        let view = NSTextField()
+        view.drawsBackground = false
+        view.isBordered = false
+        view.textColor = .black
+        view.isEditable = false
+        return view
+    }()
+    
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        makeUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func makeUI() {
+        addSubviews([iconView, colorLabel])
+        
+        iconView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(15)
+        }
+        colorLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(iconView.snp.bottom).offset(8)
+            make.bottom.equalToSuperview().inset(15)
+        }
+    }
 }
