@@ -24,6 +24,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var autoColorButton: NSButton!
     @IBOutlet weak var customColorButton: NSButton!
     
+    @IBOutlet weak var assetsField: NSTextField!
     @IBOutlet weak var toolPathField: NSTextField!
     var tinter = SVGTinter()
         
@@ -157,7 +158,14 @@ class ViewController: NSViewController {
     }
     
     @IBAction func selectDestinationPath(_ sender: Any) {
-        save()
+        let assetsPath = assetsField.stringValue
+        if assetsPath.isEmpty {
+            save()
+        } else if let url = URL(string: assetsPath){
+            self.tinter.save(on: url)
+        } else {
+            logPanel.textView.string += "assets目录不正确"
+        }
     }
     
     private func save() {
