@@ -21,7 +21,7 @@ which rsvg-convert
 * 打开Xcode拖入Assets至输入框
 > 以上仅在首次使用时需要操作
 
-* 下载`SVG`格式的图片，打开SVG图片目录
+* 下载`SVG`格式的图片，打开SVG图片目录（或拖拽目录至表格处）
 * 点击保存，自动导入至`Xcode Assets`
 
 > * 默认自动配色，不在配色表请检查或自选
@@ -45,4 +45,4 @@ which rsvg-convert
 * [x] 同时导出源图的PDF
 * [x] 命名增加尺寸
 * [x] 保存到Assets
-* [ ] 拖拽优化？
+* [x] 拖拽优化
