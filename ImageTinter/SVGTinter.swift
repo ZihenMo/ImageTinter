@@ -194,7 +194,7 @@ extension SVGTinter {
         writeAllCache()
         sourceImages.forEach { info in
             var fileName = ""
-            if let imagesetUrl = generateImageset(fileName: info.fileName, assets: dir),
+            if let imagesetUrl = generateImageset(fileName: info.fileName + info.suffix(), assets: dir),
                let svgUrl = info.url {
                 fileName = info.fileName + info.suffix()
                 let pdfUrl = imagesetUrl.appendingPathComponent(fileName).appendingPathExtension(for: .pdf)

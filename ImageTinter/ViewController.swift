@@ -306,9 +306,11 @@ extension ViewController: NSTableViewDataSource {
             let imageInfo = sourceImages[safe: row]
             cell.iconView.image = imageInfo?.image
             cell.colorLabel.stringValue = imageInfo?.color?.hexString ?? ""
+            cell.nameLabel.stringValue = imageInfo?.fileName ?? ""
         case destinationId:
             let imageInfo = destinationImages[safe: row]
             cell.iconView.image = imageInfo?.image
+            cell.nameLabel.stringValue = imageInfo?.fileName ?? ""
             cell.colorLabel.stringValue = imageInfo?.color?.hexString ?? ""
         default:
             return cell

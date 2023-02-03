@@ -70,6 +70,15 @@ class ImageCellView: NSTableCellView {
         return view
     }()
     
+    var nameLabel: NSTextField = {
+        let view = NSTextField()
+        view.drawsBackground = false
+        view.isBordered = false
+        view.textColor = .black
+        view.isEditable = false
+        return view
+    }()
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         makeUI()
@@ -80,15 +89,20 @@ class ImageCellView: NSTableCellView {
     }
     
     func makeUI() {
-        addSubviews([iconView, colorLabel])
+        addSubviews([iconView, nameLabel, colorLabel])
         
         iconView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(15)
         }
-        colorLabel.snp.makeConstraints { make in
+        nameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(iconView.snp.bottom).offset(8)
+        }
+        
+        colorLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(nameLabel.snp.bottom).offset(2)
             make.bottom.equalToSuperview().inset(15)
         }
     }
