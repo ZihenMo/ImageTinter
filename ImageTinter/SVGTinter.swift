@@ -215,17 +215,16 @@ extension SVGTinter {
                 )
             }
         }
-//        saveSourceFileToPDF(on: dir)
-//        saveTintedFileToPDF(on: dir)
     }
     
     private func generateImageset(fileName: String, assets: URL) -> URL? {
         do {
-            guard let path = assets.absoluteString.removingPrefix("file://").appendingPathComponent(fileName.deletingPathExtension).appendingPathExtension("imageset") else {
+            guard let path = assets.absoluteString.removingPrefix("file://").appendingPathComponent(fileName.deletingPathExtension).appendingPathExtension("imageset")?.urlDecoded else {
+                logs.accept("生成imageassets失败, assets: \(assets), fileName: \(fileName)")
                 return nil
             }
             try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true)
-            return URL(string: "file://" + path)
+            return URL(string: path.urlEncoded)
         } catch {
             logs.accept("生成imageassets失败, assets: \(assets), fileName: \(fileName), error:\(error)")
         }
@@ -259,11 +258,14 @@ extension SVGTinter {
         }
         """
         
-        let url = imageset.appendingPathComponent("Contents.json", conformingTo: .json)
+        var path = imageset.absoluteString.urlDecoded
+        path = path.appendingPathComponent("Contents.json")
         do {
-            try jsonString.write(to: url, atomically: true, encoding: .utf8)
+            try jsonString.write(toFile: path, atomically: true, encoding: .utf8)
+            // url 带有空格和中文时，同时目录又是带后缀，无论怎么转义都无法写入
+//            try jsonString.write(to: url, atomically: true, encoding: .utf8)
         } catch {
-            logs.accept("写入ContentsJson失败: \(error)")
+            logs.accept("写入ContentsJson失败, path: \(path): \(error)")
         }
     }
     
@@ -273,7 +275,6 @@ extension SVGTinter {
     }
     
     private func saveTintedFileToPDF(on dir: URL) {
-        let svgDirPath = cacheURL.absoluteString.removingPrefix("file://")
         writeAllCache()
         convertAllSVGToPDF(urls: tintedURLs, on: dir)
     }
@@ -290,7 +291,7 @@ extension SVGTinter {
 
         let workPath = svgUrl.absoluteString.removingPrefix("file://").deletingLastPathComponent
         
-        let op = shell("cd \(workPath)")
+        let op = shell("cd \"\(workPath.urlDecoded)\"")
         logs.accept(op)
 
         let pwd = shell("pwd")
@@ -304,7 +305,7 @@ extension SVGTinter {
             logs.accept("找不到libsvg路径，请配置正确路径")
         }
         /// 不能使用带有空格的目录！
-            let commond = "\(self.toolPath) -d 72 -p 72 -f pdf -o \(pdfPath) \(svgPath)"
+        let commond = "\(self.toolPath) -d 72 -p 72 -f pdf -o \"\(pdfPath.urlDecoded)\" \"\(svgPath.urlDecoded)\""
         logs.accept("commonad: \(commond)")
 
         let op2 = shell(commond)

@@ -16,6 +16,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         avoidSVGKitBug()
         ColorConfig.shared.load()
     }
+    
+    func test() {
+        var path = "/Users/vino/Projects/coinex/coinex_exchange_new_ios/CoinExchange_iOS/Assets.xcassets/箭头_右_14_9D9DA3.imageset"
+        path = path.appendingPathComponent("Contents.json")
+        try!"测试".write(toFile: path, atomically: true, encoding: .utf8)
+        
+    }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application

@@ -195,7 +195,7 @@ class ViewController: NSViewController {
         let assetsPath = assetsField.stringValue
         if assetsPath.isEmpty {
             save()
-        } else if let url = URL(string: assetsPath){
+        } else if let url = URL(string: assetsPath.urlEncoded){
             self.cacheAssetsPath(assetsPath)
             self.tinter.save(on: url)
         } else {
@@ -266,17 +266,26 @@ class ViewController: NSViewController {
     /// 识别文件，筛选出pdf后缀的文件
     private func recognizeImageURLs(_ URLs: [URL]) -> [URL] {
         guard !URLs.isEmpty else { return [] }
-        if URLs.count == 1, let url = URLs.first {
-            if isDirectory(url) {
-                let subPaths = ((try? FileManager.default.contentsOfDirectory(atPath: url.relativePath)) ?? [])
-                let subURLs = subPaths.compactMap({ URL(string:$0, relativeTo: url) })
-                return filterImageURLs(subURLs)
-            } else {
-                return filterImageURLs([url])
+        return URLs.reduce([]) { result, url in
+            let dirEnum = FileManager.default.enumerator(at: url, includingPropertiesForKeys: nil)
+            var subDir: [URL] = []
+            while let nextUrl = dirEnum?.nextObject() as? URL {
+                subDir.append(nextUrl)
             }
-        } else {
-            return filterImageURLs(URLs)
+            return result + filterImageURLs(subDir)
         }
+        
+//        if URLs.count == 1, let url = URLs.first {
+//            if isDirectory(url) {
+//                let subPaths = ((try? FileManager.default.contentsOfDirectory(atPath: url.relativePath)) ?? [])
+//                let subURLs = subPaths.compactMap({ URL(string:$0, relativeTo: url) })
+//                return filterImageURLs(subURLs)
+//            } else {
+//                return filterImageURLs([url])
+//            }
+//        } else {
+//            return filterImageURLs(URLs)
+//        }
     }
     
     func processPreview() {
@@ -316,6 +325,33 @@ extension ViewController: NSTableViewDataSource {
             return cell
         }
         return cell
+    }
+    
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
+        return .every
+    }
+    
+    
+    func containsRegisterdDraggedType(types: [NSPasteboard.PasteboardType]?) -> Bool {
+        return types?.contains(where: { type in type == self.tableView.draggedType.first! }) ?? false
+    }
+    
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
+        let pboard = info.draggingPasteboard
+        debugPrint("drop type: \(String(describing: pboard.types))")
+        if containsRegisterdDraggedType(types: pboard.types) {
+            var urls = pboard.pasteboardItems?.reduce([]){ result, item in
+                let path = item.propertyList(forType: self.tableView.draggedType.first!) as? String
+                if let url = URL(string: path) {
+                    return result + [url]
+                }
+                return result
+            } as? [URL]
+            if let urls = urls{
+                scanImages(urls)
+            }
+        }
+        return true
     }
 }
 

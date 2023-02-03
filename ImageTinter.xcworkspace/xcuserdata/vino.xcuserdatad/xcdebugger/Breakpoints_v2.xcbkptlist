@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "20A1393A-2A6A-4582-B195-401C120B5B48"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ImageTinter/DragFileView.swift"
@@ -18,6 +18,70 @@
             endingLineNumber = "26"
             landmarkName = "draggingEntered(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E35DD03F-F80B-4A1A-A2D2-35ACF5C688DF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ImageTinter/SVGTinter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "save(on:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FEEA72B9-C23B-4C54-A6AC-94F819A4F5C2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ImageTinter/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "selectDestinationPath(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FEEA72B9-C23B-4C54-A6AC-94F819A4F5C2 - d32299214a164f39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ImageTinter.ViewController.selectDestinationPath(Any) -&gt; ()"
+                  moduleName = "ImageTinter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vino/Projects/temp/ImageTinter/ImageTinter/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "516">
+               </Location>
+               <Location
+                  uuid = "FEEA72B9-C23B-4C54-A6AC-94F819A4F5C2 - d32299214a164f39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ImageTinter.ViewController.selectDestinationPath(Any) -&gt; ()"
+                  moduleName = "ImageTinter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vino/Projects/temp/ImageTinter/ImageTinter/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "528">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
