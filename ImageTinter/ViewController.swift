@@ -64,6 +64,18 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         makeUI()
         bind()
+        loadAssetsPath()
+    }
+    
+    func loadAssetsPath() {
+        if let assetsPath = UserDefaults.standard.object(forKey: "ImageAssetsPath") as? String {
+            assetsField.stringValue = assetsPath
+        }
+    }
+    
+    func cacheAssetsPath(_ path: String) {
+        UserDefaults.standard.set(path, forKey: "ImageAssetsPath")
+        UserDefaults.standard.synchronize()
     }
     
     func makeUI() {
@@ -138,6 +150,28 @@ class ViewController: NSViewController {
             }
             .bind(to: autoColorButton.rx.state)
             .disposed(by: disposeBag)
+        
+        customColorButton
+            .rx
+            .state
+            .filter {
+                return $0 == .on
+            }
+            .subscribe(onNext: { [weak self] _ in
+                self?.processPreview()
+            })
+            .disposed(by: disposeBag)
+        
+        colorLabel.rx.text.subscribe(onNext: { [weak self] colorHexString in
+            if  let self = self,
+                let colorHexString = colorHexString,
+                let color = NSColor(hexString: colorHexString),
+                self.selectedColor != color {
+                self.selectedColor = color
+                self.processPreview()
+            }
+            
+        }).disposed(by: disposeBag)
                 
     }
         
@@ -162,6 +196,7 @@ class ViewController: NSViewController {
         if assetsPath.isEmpty {
             save()
         } else if let url = URL(string: assetsPath){
+            self.cacheAssetsPath(assetsPath)
             self.tinter.save(on: url)
         } else {
             logPanel.textView.string += "assets目录不正确"

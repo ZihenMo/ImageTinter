@@ -122,7 +122,6 @@ class SVGTinter {
     
     private func parseAndTint(_ imageInfo: ImageInfo, tintColor: NSColor) -> ImageInfo? {
         do {
-            guard let url = imageInfo.url else { return nil }
             let dom = try SwiftSoup.parse(imageInfo.dom)
             let pathElements = try dom.select("path")
             for e in pathElements {
