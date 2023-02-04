@@ -39,49 +39,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FEEA72B9-C23B-4C54-A6AC-94F819A4F5C2"
+            uuid = "E4B8E490-FCD3-48F7-81F4-0E4CA5362195"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ImageTinter/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
-            landmarkName = "selectDestinationPath(_:)"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
+            landmarkName = "tableView(_:acceptDrop:row:dropOperation:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FEEA72B9-C23B-4C54-A6AC-94F819A4F5C2 - d32299214a164f39"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ImageTinter.ViewController.selectDestinationPath(Any) -&gt; ()"
-                  moduleName = "ImageTinter"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vino/Projects/temp/ImageTinter/ImageTinter/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "198"
-                  endingLineNumber = "198"
-                  offsetFromSymbolStart = "516">
-               </Location>
-               <Location
-                  uuid = "FEEA72B9-C23B-4C54-A6AC-94F819A4F5C2 - d32299214a164f39"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ImageTinter.ViewController.selectDestinationPath(Any) -&gt; ()"
-                  moduleName = "ImageTinter"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vino/Projects/temp/ImageTinter/ImageTinter/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "198"
-                  endingLineNumber = "198"
-                  offsetFromSymbolStart = "528">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

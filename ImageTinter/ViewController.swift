@@ -263,29 +263,22 @@ class ViewController: NSViewController {
     }
     
     /// 识别目录(只允许选一个目录)
-    /// 识别文件，筛选出pdf后缀的文件
+    /// 识别文件，筛选出svg后缀的文件
     private func recognizeImageURLs(_ URLs: [URL]) -> [URL] {
         guard !URLs.isEmpty else { return [] }
         return URLs.reduce([]) { result, url in
-            let dirEnum = FileManager.default.enumerator(at: url, includingPropertiesForKeys: nil)
-            var subDir: [URL] = []
-            while let nextUrl = dirEnum?.nextObject() as? URL {
-                subDir.append(nextUrl)
+            if isDirectory(url) {
+                let dirEnum = FileManager.default.enumerator(at: url, includingPropertiesForKeys: nil)
+                var subDir: [URL] = []
+                while let nextUrl = dirEnum?.nextObject() as? URL {
+                    subDir.append(nextUrl)
+                }
+                return result + filterImageURLs(subDir)
+            } else {
+                return result + filterImageURLs([url])
             }
-            return result + filterImageURLs(subDir)
+
         }
-        
-//        if URLs.count == 1, let url = URLs.first {
-//            if isDirectory(url) {
-//                let subPaths = ((try? FileManager.default.contentsOfDirectory(atPath: url.relativePath)) ?? [])
-//                let subURLs = subPaths.compactMap({ URL(string:$0, relativeTo: url) })
-//                return filterImageURLs(subURLs)
-//            } else {
-//                return filterImageURLs([url])
-//            }
-//        } else {
-//            return filterImageURLs(URLs)
-//        }
     }
     
     func processPreview() {
