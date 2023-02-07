@@ -81,9 +81,9 @@ class SVGTinter {
     private func pickColorAndSize(from svgDom: String) -> (NSColor, Int)? {
         do {
             let dom = try SwiftSoup.parse(svgDom)
-            let pathElements = try dom.select("path")
+            let fillElements = try getFillElements(from: dom)
             var color: NSColor? = nil
-            for e in pathElements {
+            for e in fillElements {
                 if let colorHexString = try? e.attr("fill") {
                     color = NSColor(hexString: colorHexString)
                     break
@@ -120,11 +120,17 @@ class SVGTinter {
         return sourceImages
     }
     
+    private func getFillElements(from dom: Document) throws -> [Element] {
+         return try dom.getElementsByAttribute("fill").filter {
+            $0.tagName().lowercased() != "svg"
+        }
+    }
+    
     private func parseAndTint(_ imageInfo: ImageInfo, tintColor: NSColor) -> ImageInfo? {
         do {
             let dom = try SwiftSoup.parse(imageInfo.dom)
-            let pathElements = try dom.select("path")
-            for e in pathElements {
+            let fillElements = try getFillElements(from: dom)
+            for e in fillElements {
                 try e.attr("fill", tintColor.hexString)
             }
             let string = try dom.select("svg").toString()

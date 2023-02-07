@@ -333,7 +333,7 @@ extension ViewController: NSTableViewDataSource {
         let pboard = info.draggingPasteboard
         debugPrint("drop type: \(String(describing: pboard.types))")
         if containsRegisterdDraggedType(types: pboard.types) {
-            var urls = pboard.pasteboardItems?.reduce([]){ result, item in
+            let urls = pboard.pasteboardItems?.reduce([]){ result, item in
                 let path = item.propertyList(forType: self.tableView.draggedType.first!) as? String
                 if let url = URL(string: path) {
                     return result + [url]

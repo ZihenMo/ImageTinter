@@ -31,23 +31,28 @@ class ColorConfig {
     }
     
     private func loadCache() -> [String: String] {
-        guard var userDir = FileManager.default.urls(for: .userDirectory, in: .userDomainMask).first else {
+        
+        guard let userPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
+            log.accept("找不到用户文档目录")
             return [:]
         }
-        userDir.appendPathComponent(configFileName, conformingTo: .json)
+        let configPath = userPath.appendingPathComponent(configFileName)
         var exist: Bool = false
-        exist = FileManager.default.fileExists(atPath: userDir.absoluteString)
+        exist = FileManager.default.fileExists(atPath: configPath)
         guard exist else {
             log.accept("配色文件不存在")
             return [:]
         }
         
         do {
-            let configData = try Data(contentsOf: userDir)
+            guard let configData = try String(contentsOfFile: configPath).data(using: .utf8) else {
+                log.accept("读取配色文件失败, path:\(userPath)")
+                return [:]
+            }
             let configColor = try JSONDecoder().decode([String: String].self, from: configData)
             return configColor
         } catch {
-            log.accept("读取配色文件失败")
+            log.accept("读取配色文件失败, path: \(configPath)")
         }
         
         return [:]
@@ -58,7 +63,9 @@ class ColorConfig {
         let uniqueFilter: (String, String) -> String = { k1, k2 in
             return k2
         }
-        colorPalette.merge(defatultColors, uniquingKeysWith: uniqueFilter)
+        colorPalette = defatultColors
+        colorPalette.merge(configColor, uniquingKeysWith: uniqueFilter)
+    
     }
     
     
