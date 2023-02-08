@@ -32,6 +32,9 @@ which rsvg-convert
 > * 默认自动配色，不在配色表请检查或自选
 > * **为确保唯一性，命名采用"设计名_尺寸_颜色", 如cal_24_111114为默认规范图标**
 
+![](/assets/Snipaste_2023-02-01_17-01-10.png)
+
+
 ## 配色表
 自定义配色表，建立一个名为`ImageTinterColors.json`的`JSON`文件放置在`用户/文档`目录下，如：`/Users/vino/Documents`。内容格式为{"白天色": "黑夜色"}，如下：
 ```json
