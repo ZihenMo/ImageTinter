@@ -15,8 +15,8 @@ class ColorConfig {
     private let defatultColors = [
         "#111114": "#ffffff",
         "#484852": "#484852",
-        "#71717A": "#787C85",
-        "#9D9DA3": "#3C4047"
+        "#71717a": "#787c85",
+        "#9d9da3": "#3c4047"
     ]
     
     private let configFileName = "ImageTinterColors.json"
@@ -63,14 +63,16 @@ class ColorConfig {
         let uniqueFilter: (String, String) -> String = { k1, k2 in
             return k2
         }
+        let lowcaseConfigColor = configColor.mapKeysAndValues { (k, v) in
+            return (k.lowercased(), v.lowercased())
+        }
         colorPalette = defatultColors
-        colorPalette.merge(configColor, uniquingKeysWith: uniqueFilter)
-    
+        colorPalette.merge(lowcaseConfigColor, uniquingKeysWith: uniqueFilter)
     }
     
     
     func tintedColor(with originColor: NSColor) -> NSColor? {
-        if let hexString = colorPalette[originColor.hexString] {
+        if let hexString = colorPalette[originColor.hexString.lowercased()] {
             return NSColor(hexString: hexString)
         }
         return nil
